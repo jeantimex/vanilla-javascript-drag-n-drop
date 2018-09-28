@@ -1,3 +1,6 @@
+/**
+ * Simple Drag n Drop
+ */
 (function() {
   const box = document.querySelector("#box");
   const bin = document.querySelector("#bin");
