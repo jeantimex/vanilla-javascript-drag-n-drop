@@ -2,9 +2,9 @@
  * Simple Drag n Drop
  */
 (function() {
-  const box = document.querySelector("#box");
-  const bin = document.querySelector("#bin");
-  const container = document.querySelector("#container");
+  const box = document.querySelector(".box");
+  const bin = document.querySelector(".bin");
+  const container = document.querySelector(".container");
 
   const boxRect = box.getBoundingClientRect();
   const binRect = bin.getBoundingClientRect();
@@ -26,12 +26,12 @@
     );
   }
 
-  function detectCollision(boxX, boxY) {
-    if (hasCollision(boxX, boxY)) {
-      box.classList.add("collide");
+  function detectCollision(item, x, y) {
+    if (hasCollision(x, y)) {
+      item.classList.add("collide");
       bin.classList.add("collide");
     } else {
-      box.classList.remove("collide");
+      item.classList.remove("collide");
       bin.classList.remove("collide");
     }
   }
@@ -39,6 +39,12 @@
   function handleMouseDown(event) {
     const shiftX = event.offsetX;
     const shiftY = event.offsetY;
+
+    let item = box;
+    if (event.shiftKey) {
+      item = box.cloneNode();
+      container.appendChild(item);
+    }
 
     function handleMouseMove(event) {
       let x = event.pageX - sides.left - shiftX;
@@ -53,10 +59,10 @@
       x = x < minX ? minX : x > maxX ? maxX : x;
       y = y < minY ? minY : y > maxY ? maxY : y;
 
-      box.style.left = x + "px";
-      box.style.top = y + "px";
+      item.style.left = x + "px";
+      item.style.top = y + "px";
 
-      detectCollision(x, y);
+      detectCollision(item, x, y);
     }
 
     function handleMouseUp(event) {
