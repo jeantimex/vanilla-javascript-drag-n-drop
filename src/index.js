@@ -38,8 +38,8 @@
     const shiftY = event.offsetY;
 
     function handleMouseMove(event) {
-      let x = event.clientX - sides.left - shiftX;
-      let y = event.clientY - sides.top - shiftY;
+      let x = event.pageX - sides.left - shiftX;
+      let y = event.pageY - sides.top - shiftY;
 
       // Restrict the box inside the container
       const maxX = sides.width - boxRect.width;
