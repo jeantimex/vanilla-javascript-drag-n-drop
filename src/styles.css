@@ -3,8 +3,8 @@
 }
 
 #container {
-  width: 300px;
-  height: 300px;
+  width: 400px;
+  height: 400px;
   border: 1px solid black;
   position: relative;
   margin-left: 100px;
@@ -24,6 +24,7 @@
   border: 2px dashed black;
   position: absolute;
   pointer-events: none;
-  right: 0;
-  bottom: 0;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
