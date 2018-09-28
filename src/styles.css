@@ -27,3 +27,11 @@
   left: calc(50% - 50px);
   top: calc(50% - 50px);
 }
+
+#box.collide {
+  background-color: orange;
+}
+
+#bin.collide {
+  border-color: orange;
+}
